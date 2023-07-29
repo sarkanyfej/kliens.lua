@@ -1,40 +1,304 @@
-LuaQ  
-   @sourceS.lua           L   $   B   ‚   Â   
-  E  A  Á  Â  A B Á‚  A Ă \ … ÁA  ‚  AB ‚ ś€Â    B  …Â Á C € dC    €       śB ¤‚     ‡‚ …Â ÁÂ C € dĂ       €    śB … ÁB € śB€…Â ÁB  € d      €  €śB …Â ÁÂ   dC   €śB ¤‚   €  €   ‡ ¤Â   €     €‡B  €    
-   createMarker  ‘~ű:Áy@ZőąÚ*ŤŁ@      ,@	   cylinder       @     ŕo@      i@   createColSphere       0@      ü?   addEventHandler    onResourceStart    getResourceRootElement    refreshToplist    onResourceStop 	   addEvent 
-   dragRaceDone    getRootElement    onColShapeHit    addPlayerToRace    countDownRecursive                #    @ €€L € @  L € L € @  L € L € @  L € L € @  L € L € @  L € L € @  L € L € @  L € L € @  L € L € @  L € L € @  L € €÷^   €           @    #                                                                                                                           %           A@  €  ÁŔ  Á  A €          €€@ d    €   „   Á€ @  €    
-   dbConnect    sqlite    :see_drag/toplist.db        share=0;charset=utf8    dbQuery    SELECT * FROM toplist           "       E   €   Á@  \€€Z   Ŕ€Š      €  Ô €    € €„  ĆA ‰ÁźŔţ…Ŕ  ś@€ ‚ €  €  €       dbPoll               đ?   refreshToplist                                                              !   !   "                                                  "   "   "   #   #      %               (   8        
-   A   …@  Á   `€€D  FZ  € €D  F	@_ŔýE€  FŔŔ €   ä   \@€E  …@ Á€    \@  €          đ?   displayTopCount    table    sort    setElementData 
-   resourceRoot    dragRaceToplist        2   4        † @ Ć Ŕ XŔ   €‚@  ‚ € ž   €    
-   elapsed_time        3   3   3   3   3   3   3   4              )   +   +   +   +   ,   ,   ,   ,   -   -   -   +   1   1   1   4   1   7   7   7   7   7   8               ;   H     $         Ŕ€   D € @  @€       Ŕ€Ŕ  D   @€E  „€ Á BAF‚A†ÂAĆBCBFB\A€!€  ŔüŔ E  @ @€Ŕ E  € @€ €       dbExec    DELETE FROM toplist            ipairs v   INSERT INTO toplist (character_id, character_name, car_name, elapsed_time, speed, date_recorded) VALUES (?,?,?,?,?,?) 
-   character_id    character_name 	   car_name 
-   elapsed_time    speed    date_recorded    removeElementData 
-   resourceRoot 	   dragRace    dragRaceToplist     $   <   <   <   =   =   =   =   ?   ?   ?   ?   @   @   @   @   A   A   A   A   A   A   A   A   A   A   @   A   F   F   F   F   G   G   G   G   H               M   °    ¶      €,€Ĺ      Ü€ Ú   @€Ĺ@  Ŕ AÁ  Ü€€  A „  ” Á `Á€D  F‚FBÁ@‚€ €D  ‚  €_ýE \€ …Á †BÁA ‚ÂÂBFĂLÁ†BĂĆ‚ĂĂĂFÄś ÎAD A   €‚ ÂDD  Š‚ ‰Â€‚ĆBĹ ‰ÂŠĆÂĹ ‰Â‹‰ÂŚ‰‚€Ś‰‚ŤB€  D  T€A  FF@‚ €F‚F@@€€ Ŕ €FF@‚  €€   Ŕ€FBĹ 	AŠFÂĹ 	A‹	ÁŚ	€Ś	ŤEÂ FÇŹBÄ\‚ …Â †GĎBÄÍB‚ÎBÄś‚ ÁB C G@  AAĂ ŕ‚ €Á   •„ßÂţĹB  EĂ 	 Á	 	 B€ ÜB€ĹB C	 @€	 Ŕ Ä	 @ 
- EĂ 	 Á	 	 B€ ÜB€EB
- \B€ Ä € Ú    €Á€
-  D€ FÁĹT€  €€ ÂEÂ  Ŕ€F‚Ŕ †‚@€‚  €	Ë•FÂJ Ë@ €Ě Á@€EB †‚@\‚ ZB    €Ě ÁAú€ ÁE Ŕ €€ D    € €Á D A  d   € A Á    € 2   	   tonumber    getElementData       @   char.ID       đ?
-   character_id    getRealTime    string    format    %04d-%02d-%02d %02d:%02d:%02d    year      °ť@   month 	   monthday    hour    minute    second      @Ź@   table    insert    character_name       @	   car_name        @
-   elapsed_time    speed    date_recorded    math    floor    utf8    len       đż   0    outputChatBox :   #7cc576[SeeMTA - Drag]: #FFFFFFĂšj sajĂˇt legjobb rekord!    source      ŕo@-   #7cc576[SeeMTA - Drag]: #FFFFFFIdĹ‘: #ff9900    .    s#FFFFFF, SebessĂ©g: #ff9900     km/h    refreshToplist               @   done 
-   isElement    isTimer 
-   killTimer 	   setTimer      ł@       ¨   «           E@  €  Â   @        €       setElementData 
-   resourceRoot 	   dragRace        ©   ©   ©   ©   ©   Ş   Ş   «           ¶   N   N   O   O   O   O   O   Q   Q   Q   Q   R   T   T   T   T   T   U   U   U   U   U   V   V   W   T   \   \   ]   ]   ]   ]   ]   ]   ]   ]   ]   ]   ]   ]   ^   `   `   a   a   a   a   b   c   c   d   d   e   f   g   a   i   i   i   i   m   o   o   o   p   p   p   q   r   s   s   s   t   w   w   x   x   y   y   z   {   |   ~   ~   ~   ~                                             ‚   ‚   ‚      …   …   …   …   …   …   …   …   †   †   †   †   †   †   †   †   †   †   †   †   †   †   †   ‰   ‰   Ť   Ť   Ť   Ž                     ‘   ‘   ‘   “   “   ”   ”   ”   ”   •            ™   ™   ›   ›   ›   ›   ›   ś      ˘   ˘   ˘   ˘   ˘   Ł   Ł   Ł   Ł   Ł   ¤   ¤   ¤   §   «   «   ¬   ¬   §   ¬   °               ´   Ő    
-8   Z    
-€…   Ŕ   ś€ š   Ŕ€…@  Ŕ   ś€ €@€
-€…Ŕ  Ŕ   ś€ š   @	€Ĺ    Ü€  € €Ä   Ú   Ŕ €Ä   Ć@ÁÚ@  @€Â        €A D  FÁT€A  A€  ‚AÂ   €FÂA@ @ €Â €   €ýÚ@  € € @  A  € 	   
-   isElement    getElementType    player    getPedOccupiedVehicle    getVehicleController       đ?       @      @   addPlayerToRace     8   µ   µ   ¶   ¶   ¶   ¶   ¶   ·   ·   ·   ·   ·   ¸   ¸   ¸   ş   ş   »   »   »   »   »   Ľ   Ľ   Ľ   Ľ   Ľ   Ľ   Ľ   ˝   ż   ż   ż   Ŕ   Ŕ   Ŕ   Ŕ   Ŕ   Ŕ   Á   Á   Á   Ă   Ă   Ä   Ä   Ä   Ĺ   Ć   Ŕ   Ě   Ě   Í   Í   Í   Ő               Ř      ¦   E   €   \€ Z   Ŕ'€E@  €   \€ …   Ŕ € ś€ š   Ŕ%€„   š@  €€Š      „   ‰Ŕ@„   Ę   ‰Ŕ ‚‚   Ä   Ć ÁĆ€ŔÚ@  @ €€  @€Ä   Ć ÁĆ ÁÚ@    €  š   @€Ĺ@ Ć€ÁËŔÁE €€ \ Ü€  A @   €ÁB ÁA  E €€ Â€ \A€EÁ €€ Á  AB \A€EA FÄKÁÄŔ  
- A B "B B  \A€E €  Ŕ  \A€€@€€EÁ €€ Á B A‚ \A€Ŕ€ A@€EÁ €€ Á Â A‚ \A€A „  †AĘ  € @€€ Ŕ  âA ‰Á  Á ‚   A€„  †A†Bš   €…  Ä  ĆÁĆB‚Ć‚Ŕś‚ š    €LŔźü… Ä€ ś š  € €…A Ä€ śA … Ä ś š  € €…A Ä śA €Ŕ €… ä    Â HA‚  ś €  € Á€€… ĹA  A‚  ‚ ś€ …Á Ĺ	 B	 D  śA  € &   
-   isElement    getPedOccupiedVehicle       đ?        @   exports    see_vehiclenames    getCustomVehicleName    getElementModel    getElementData 
-   char.Name    gsub    _         setElementFrozen    setElementRotation              €V@
-   see_controls    toggleControl    accelerate    brake_reverse    setCameraTarget    setElementPosition       x@ŁĽR“Ł@     €0@”ö_ř†Ł@   isTimer 
-   killTimer 	   setTimer    raceWaitingTime      @Ź@   countDownRecursive       @   setElementData 
-   resourceRoot 	   dragRace                    E@  €  ÁŔ   €€    €    	   setTimer    countDownRecursive      @Ź@      đ?      @                               ¦   Ů   Ů   Ů   Ů   Ů   Ú   Ú   Ú   Ü   Ü   Ü   Ü   Ü   Ý   Ý   Ý   Ţ   Ţ   ß   ß   ŕ   ŕ   ŕ   ă   ĺ   ĺ   ĺ   ĺ   ĺ   ć   ć   ç   ç   ç   ç   ç   č   ë   ë   ě   ě   ě   ě   ě   ě   ě   í   í   í   í   í   í   í   í   ď   ď   ď   ď   đ   đ   đ   đ   đ   đ   ń   ń   ń   ń   ń   ń   ń   ń   ń   ń   ň   ň   ň   ň   ô   ô   ő   ő   ő   ő   ő   ő   ő   ö   ö   ÷   ÷   ÷   ÷   ÷   ÷   ú   ü   ü   ü   ü   ü   ü   ü   ü   ü   ţ   ţ   ţ   ţ   ˙   ˙   ˙   ˙   ˙                             ţ                   
-  
-  
-  
-  
-                                                                          C   V   D   Z   @€D   F Ŕ Z@  Ŕ€A   „   †@@”  Á   ` €D  FAŔFZ  Ŕ€…  ĆŔś š  Ŕ €…Á  ĆŔ  śA€…  ĆÁś š  @€…A †A‹ÁAÁJ  ÁB bB ‚€ śA€_@řD   I  €E€ …Ŕ Á    \@ M @ @€†Ŕ€E€ „ € \€ Z   € €EŔ „ € \@ E  …@ Á€   M@ \€€H € Ŕ€E€ „  \€ Z   € €EŔ „  \@ E€ „ € \€ Z   € €EŔ „ € \@  €          đ?       @
-   isElement    setElementFrozen       @   exports 
-   see_controls    toggleControl    accelerate    brake_reverse    setElementData 
-   resourceRoot 	   dragRace            isTimer 
-   killTimer 	   setTimer    countDownRecursive      @Ź@    V                     !  !  !  !  !  !  "  "  "  $  $  %  %  %  %  %  &  &  &  &  )  )  )  )  )  *  *  *  *  *  *  *  *  *  *  !  0  0  1  1  1  1  1  3  3  3  4  4  4  4  4  5  5  5  8  8  8  8  8  8  8  9  ;  ;  ;  ;  ;  <  <  <  ?  ?  ?  ?  ?  @  @  @  C          L                                                                     
-                     %   %   %   %      8   8   (   :   :   :   :   H   H   H   H   :   K   K   K   K   L   L   L   L   °   °   °   °   L   ł   ł   ł   Ő   Ő   ł           Ř   C  C  C  C    C          
+function respc(_ARG_0_)
+  return _ARG_0_
+end
+engineReplaceModel(engineLoadDFF("files/wheel_o_fortune.dff"), 1895)
+addEventHandler("onClientElementStreamIn", getRootElement(), function()
+  if getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE0_[source]) then
+      destroyElement(_UPVALUE0_[source])
+    end
+    _UPVALUE0_[source] = nil
+    _UPVALUE0_[source] = createObject(1898, unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + 2.2, 0, 0, unpack(getElementData(source, "fortunePos")))
+    setElementInterior(_UPVALUE0_[source], getElementInterior(source))
+    setElementDimension(_UPVALUE0_[source], getElementDimension(source))
+  end
+end)
+addEventHandler("onClientElementDataChange", getRootElement(), function(_ARG_0_)
+  if source == localPlayer and _ARG_0_ == "playerUsingFortune" and not getElementData(localPlayer, "playerUsingFortune") and _UPVALUE0_ then
+    closeTheTable()
+  end
+  if _ARG_0_ == "fortunePos" and getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE1_[source]) then
+      destroyElement(_UPVALUE1_[source])
+    end
+    _UPVALUE1_[source] = nil
+    _UPVALUE1_[source] = createObject(1898, unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + 2.2, 0, 0, unpack(getElementData(source, "fortunePos")))
+    setElementInterior(_UPVALUE1_[source], getElementInterior(source))
+    setElementDimension(_UPVALUE1_[source], getElementDimension(source))
+  end
+end)
+addEventHandler("onClientElementDestroy", getRootElement(), function()
+  if getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE0_[source]) then
+      destroyElement(_UPVALUE0_[source])
+    end
+    _UPVALUE0_[source] = nil
+  end
+end)
+addEventHandler("onClientElementStreamOut", getRootElement(), function()
+  if getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE0_[source]) then
+      destroyElement(_UPVALUE0_[source])
+    end
+    _UPVALUE0_[source] = nil
+  end
+end)
+addEventHandler("onClientRender", getRootElement(), function()
+  for _FORV_3_, _FORV_4_ in pairs(_UPVALUE0_) do
+    _UPVALUE1_[_FORV_4_] = (_UPVALUE1_[_FORV_4_] or 0) + math.abs(getElementRotation(_FORV_3_) - (_UPVALUE2_[_FORV_4_] or 0))
+    _UPVALUE2_[_FORV_4_] = getElementRotation(_FORV_3_)
+    if _UPVALUE1_[_FORV_4_] > 4 then
+      _UPVALUE1_[_FORV_4_] = 0
+      setElementInterior(playSound3D("files/wheel.mp3", getElementPosition(_FORV_4_)), getElementInterior(_FORV_4_))
+      setElementDimension(playSound3D("files/wheel.mp3", getElementPosition(_FORV_4_)), getElementDimension(_FORV_4_))
+    end
+    if _UPVALUE1_[_FORV_4_] > 1 then
+      setElementRotation(_FORV_4_, 0, -(_UPVALUE1_[_FORV_4_] - 1) / 3 * -10, getElementRotation(_FORV_3_))
+    end
+  end
+end)
+addEventHandler("onClientElementDataChange", localPlayer, function(_ARG_0_)
+  if _ARG_0_ == "char.slotCoins" then
+    _UPVALUE0_ = getElementData(source, "char.slotCoins")
+  end
+end)
+addEvent("openFortuneWheel", true)
+addEventHandler("openFortuneWheel", getRootElement(), function(_ARG_0_, _ARG_1_)
+  Roboto = dxCreateFont("files/Roboto.ttf", 14, false, "antialiased")
+  gtaFont = dxCreateFont("files/gtaFont.ttf", 20, false, "antialiased")
+  tooltipFont = dxCreateFont("files/Roboto.ttf", 18, false, "antialiased")
+  _UPVALUE0_ = _ARG_1_
+  addEventHandler("onClientRender", getRootElement(), fortuneWheel)
+  theX, theY = _UPVALUE1_ / 2, _UPVALUE2_ / 2
+  _UPVALUE3_ = 0
+end)
+function closeTheTable(_ARG_0_)
+  triggerServerEvent("closeTheWheel", localPlayer, _UPVALUE0_, _ARG_0_)
+  removeEventHandler("onClientRender", getRootElement(), fortuneWheel)
+  if isElement(Roboto) then
+    destroyElement(Roboto)
+  end
+  if isElement(gtaFont) then
+    destroyElement(gtaFont)
+  end
+  if isElement(tooltipFont) then
+    destroyElement(tooltipFont)
+  end
+  _UPVALUE0_ = nil
+  _UPVALUE1_ = 0
+  _UPVALUE2_ = 0
+  _UPVALUE3_ = {}
+  _UPVALUE4_ = {}
+  exitingProcessStarted = false
+end
+;({})[0] = {
+  [0] = "x20",
+  [1] = "x10"
+}
+;({})[1] = {
+  [0] = "x5",
+  [1] = "x2"
+}
+;({})[2] = {
+  [0] = "x1",
+  [1] = "\226\152\133 x40"
+}
+;({})[0] = {
+  [0] = 20,
+  [1] = 10
+}
+;({})[1] = {
+  [0] = 5,
+  [1] = 2
+}
+;({})[2] = {
+  [0] = 1,
+  [1] = 40
+}
+function showTooltip(_ARG_0_, _ARG_1_, _ARG_2_, _ARG_3_)
+  _ARG_2_ = tostring(_ARG_2_)
+  if _ARG_3_ then
+    _ARG_3_ = tostring(_ARG_3_)
+  else
+    return
+  end
+  if _ARG_3_ then
+    _ARG_2_ = "#7cc576" .. _ARG_2_ .. [[
+
+#ffffff]] .. _ARG_3_
+  end
+  _ARG_0_ = math.max(10, math.min(_ARG_0_, _UPVALUE0_ - math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20) - 10))
+  _ARG_1_ = math.max(10, math.min(_ARG_1_, _UPVALUE1_ - math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20) - 10))
+  dxDrawRectangle(_ARG_0_, _ARG_1_, math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20), 10 * (5 + string.gsub(_ARG_3_, "\n", "")), _UPVALUE2_, true)
+  dxDrawText(_ARG_2_, _ARG_0_, _ARG_1_, _ARG_0_ + math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20), _ARG_1_ + 10 * (5 + string.gsub(_ARG_3_, "\n", "")), _UPVALUE3_, 0.5, tooltipFont, "center", "center", false, false, true, true)
+end
+addEvent("onFortuneBetPlaced", true)
+addEventHandler("onFortuneBetPlaced", getRootElement(), function(_ARG_0_, _ARG_1_, _ARG_2_)
+  _UPVALUE0_ = _UPVALUE0_ + _ARG_2_
+  _UPVALUE1_[_ARG_0_ .. "," .. _ARG_1_] = (_UPVALUE1_[_ARG_0_ .. "," .. _ARG_1_] or 0) + _ARG_2_
+end)
+function fortuneWheel()
+  if getCursorPosition() and (exitingProcessStarted or getCursorPosition() * _UPVALUE0_ >= theX + respc(150) - 25 and getCursorPosition() * _UPVALUE0_ <= theX + respc(150) - 5 and getCursorPosition() * _UPVALUE1_ >= theY - 150 - 4 and getCursorPosition() * _UPVALUE1_ <= theY - 150 + 26) and not exitingProcessStarted and getKeyState("mouse1") then
+    if _UPVALUE2_ > 0 then
+      if not cantNotiState then
+        cantNotiState = true
+        exports.lv_accounts:showInfo("e", "El�bb p�rgess, vagy vedd le a t�tjeidet!")
+      elseif not getKeyState("mouse1") then
+        cantNotiState = false
+      end
+    else
+      cantNotiState = false
+      exitingProcessStarted = true
+      closeTheTable()
+      return
+    end
+  end
+  dxDrawRectangle(theX - respc(150), theY - 150 - 4, 300, 308, tocolor(0, 0, 0, 150))
+  dxDrawRectangle(theX - respc(150), theY - 150 - 4, 300, 30, tocolor(0, 0, 0, 75))
+  if getCursorPosition() * _UPVALUE0_ then
+    if getKeyState("mouse1") then
+      if getCursorPosition() * _UPVALUE0_ >= theX - respc(150) and getCursorPosition() * _UPVALUE0_ <= theX + respc(150) and getCursorPosition() * _UPVALUE1_ >= theY - 150 - 4 and getCursorPosition() * _UPVALUE1_ <= theY - 150 - 4 + 30 and not draggingWindows then
+        draggingWindows = {
+          getCursorPosition() * _UPVALUE0_,
+          getCursorPosition() * _UPVALUE1_,
+          theX,
+          theY
+        }
+      end
+      if draggingWindows then
+        theX = getCursorPosition() * _UPVALUE0_ - draggingWindows[1] + draggingWindows[3]
+        theY = getCursorPosition() * _UPVALUE1_ - draggingWindows[2] + draggingWindows[4]
+      end
+    else
+      draggingWindows = false
+    end
+  else
+    draggingWindows = false
+  end
+  if getCursorPosition() then
+  else
+  end
+  for _FORV_8_ = 0, 2 do
+    for _FORV_12_ = 0, 1 do
+      dxDrawRectangle(theX - 146 + _FORV_8_ * 97.33333333333333 + 4, theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4, 89.33333333333333, 72, tocolor(124, 197, 118, 200))
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) + 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) + 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) - 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) - 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) - 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) - 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) + 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) + 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333), math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2), math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333), math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2), tocolor(255, 255, 255), 0.9, gtaFont, "center", "center", false, false, false, true)
+      if _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] then
+        dxDrawImage(theX - 146 + _FORV_8_ * 97.33333333333333 + 4 + 44.666666666666664 - 12, theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4 + 18 - 12, 24, 24, "files/chips/" .. _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] .. ".png")
+        if 0 >= theX - 146 + _FORV_8_ * 97.33333333333333 + 4 + 44.666666666666664 - 12 and 0 >= theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4 + 18 - 12 and 0 <= theX - 146 + _FORV_8_ * 97.33333333333333 + 4 + 44.666666666666664 + 12 and 0 <= theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4 + 18 + 12 then
+          if _UPVALUE5_ and _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] and _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] + _UPVALUE5_ > 10000 then
+          else
+            showTooltip(0, 0, _UPVALUE3_[_FORV_8_][_FORV_12_], "T�ted: " .. (_UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] or 0) .. " SSC")
+          end
+          if getKeyState("mouse2") then
+            if 0 < (_UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] or 0) then
+              _UPVALUE2_ = _UPVALUE2_ - _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_]
+              _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] = 0
+              _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] = false
+              triggerServerEvent("onRemoveFortuneBet", localPlayer, _UPVALUE7_, _FORV_8_, _FORV_12_)
+            end
+          end
+        end
+      end
+      if _UPVALUE5_ > 0 and 0 >= theX - 146 + _FORV_8_ * 97.33333333333333 and 0 >= theY - 160 + 30 + _FORV_12_ * 160 / 2 and 0 <= theX - 146 + (_FORV_8_ + 1) * 97.33333333333333 and 0 <= theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2 then
+        if _UPVALUE5_ then
+          if (_UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] or 0) + _UPVALUE5_ > 10000 then
+            showTooltip(0, 0, _UPVALUE3_[_FORV_8_][_FORV_12_], "Maximum 10000 SSC lehet a t�t.")
+          end
+        elseif not getKeyState("mouse1") then
+          triggerServerEvent("onPlaceFortuneCoin", localPlayer, _UPVALUE5_, _UPVALUE7_, _FORV_8_, _FORV_12_, getElementsByType("player", getRootElement(), true), _UPVALUE8_[_FORV_8_][_FORV_12_])
+          _UPVALUE9_ = getTickCount()
+          _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] = _UPVALUE5_
+          _UPVALUE5_ = 0
+        end
+      end
+    end
+  end
+  dxDrawText("#7cc576See#ffffffMTA - Szerencseker�k", theX - respc(150) + 5, theY - 150 - 4, 0, theY - 150 - 4 + 30, tocolor(255, 255, 255), 1, Roboto, "left", "center", false, false, false, true)
+  dxDrawText("x", 0, theY - 150 - 4, theX + respc(150) - 5, theY - 150 - 4 + 30, tocolor(215, 89, 89, 200), 1, Roboto, "right", "center", false, false, false, true)
+  if 0 >= theX - 142 and 0 >= theY + 160 - 130 + 8 and 0 <= theX - 142 + 284 and 0 <= theY + 160 - 130 + 8 + 50 - 16 and _UPVALUE2_ > 0 and _UPVALUE5_ < 1 and getTickCount() - _UPVALUE9_ > 2000 then
+    if not exitingProcessStarted and getKeyState("mouse1") then
+      cantNotiState = false
+      exitingProcessStarted = true
+      closeTheTable(true)
+      return
+    end
+  end
+  dxDrawRectangle(theX - 142, theY + 160 - 130 + 8, 284, 34, tocolor(124, 197, 118, 225))
+  dxDrawText("P�rget�s", theX - 150, theY + 160 - 130, theX + 150, theY + 160 - 80, tocolor(0, 0, 0), 0.85, Roboto, "center", "center", false, false, false, true)
+  dxDrawText("#7cc576" .. _UPVALUE10_ .. " #ffffffSSC", theX - 150, theY + 150 - 80, theX + 150, theY + 150 - 32, tocolor(255, 255, 255), 0.9, gtaFont, "center", "center", false, false, false, true)
+  dxDrawImage(math.floor(theX - 96), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/1.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(32)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/5.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(64)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/25.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(96)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/50.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(128)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/100.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(160)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/500.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  if _UPVALUE5_ > 0 then
+    dxDrawImage(0 - 12, 0 - 12, 24, 24, "files/chips/" .. _UPVALUE5_ .. ".png")
+  end
+  if _UPVALUE5_ > 0 and not getKeyState("mouse1") then
+    _UPVALUE5_ = 0
+  end
+  if 0 and getTickCount() - _UPVALUE11_ > 1000 then
+    if 0 >= theX - 96 and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(24) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 1 then
+      _UPVALUE5_ = 1
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(32) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(56) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 5 then
+      _UPVALUE5_ = 5
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(64) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(88) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 25 then
+      _UPVALUE5_ = 25
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(96) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(120) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 50 then
+      _UPVALUE5_ = 50
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(128) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(152) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 100 then
+      _UPVALUE5_ = 100
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(160) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(184) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 500 then
+      _UPVALUE5_ = 500
+      _UPVALUE11_ = getTickCount()
+    end
+  end
+end
+function roulettePlaceRender()
+  setElementPosition(_UPVALUE0_, getElementPosition(localPlayer))
+  setElementRotation(_UPVALUE0_, 0, 0, math.floor(getElementRotation(localPlayer) / 5) * 5)
+end
+addCommandHandler("createwheel", function()
+  if getElementData(localPlayer, "acc.adminLevel") >= 9 then
+    if _UPVALUE0_ then
+      removeEventHandler("onClientRender", getRootElement(), roulettePlaceRender)
+      triggerServerEvent("placeFortuneWheel", localPlayer, getElementPosition(_UPVALUE0_))
+      if isElement(_UPVALUE0_) then
+        destroyElement(_UPVALUE0_)
+      end
+      _UPVALUE0_ = nil
+    else
+      _UPVALUE0_ = createObject(1896, 0, 0, 0)
+      setElementCollisionsEnabled(_UPVALUE0_, false)
+      setElementAlpha(_UPVALUE0_, 175)
+      setElementInterior(_UPVALUE0_, getElementInterior(localPlayer))
+      setElementDimension(_UPVALUE0_, getElementDimension(localPlayer))
+      addEventHandler("onClientRender", getRootElement(), roulettePlaceRender)
+    end
+  end
+end)
+addCommandHandler("nearbywheels", function()
+  if getElementData(localPlayer, "acc.adminLevel") and getElementData(localPlayer, "acc.adminLevel") >= 9 then
+    outputChatBox("#7cc576------[K�zeledben l�v� kerekek]------", 255, 255, 255, true)
+    for _FORV_7_ = 1, #getElementsByType("object", getRootElement(), true) do
+      if getElementData(getElementsByType("object", getRootElement(), true)[_FORV_7_], "fortuneTable") then
+        outputChatBox("  #" .. getElementData(getElementsByType("object", getRootElement(), true)[_FORV_7_], "fortuneTable") .. " T�vols�g:#32b3ef " .. math.floor(getDistanceBetweenPoints3D(getElementPosition(localPlayer)) * 1000) / 1000, 255, 255, 255, true)
+      end
+    end
+  end
+end)
