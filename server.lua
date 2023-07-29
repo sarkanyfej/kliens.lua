@@ -1,473 +1,304 @@
-lua
-availableItems = { 
-[1] = { "J�rm� kulcs", "J�rm\195\187 kulcs, a g�pj�rm�vedhez.", 1, 1581, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[2] = { "Lak�s kulcs", "Lak�skulcs a lak�sodhoz", 1, 1581, 270, 270, 0, 0, 0.01, 0, -1, -1, false, false }, 
-[2]{ "Kapu t�vir�ny�t�", "T�vir�ny�t� egy kapuhoz", 1, 1581, 270, 270, 0, 0, 0.01, 0, -1, -1, false, false }, 
-[3] = { "R�di�", "Egy kis walki-talkie r�di�.", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[4] = { "Laptop", "Egy j� laptop", 1, 2190, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[5] = { "Hot Dog", "Egy nagyon �zletes hot-dog", 1, 2663, 205, 205, 0, 0.01, 0.01, 0.8, -1, -1, true, true }, 
-[6] = { "Hamburger", "Egy guszta, j�l megpakolt hamburger.", 1, 2663, 270, 270, 0, 0, 0.01, 0.8, -1, -1, true, true }, 
-[7] = { "Kebab", "Kebab duplasz�sszal az �lvezet miatt", 1, 2663, 270, 270, 0, 0, 0.01, 1, -1, -1, true, true }, 
-[8] = { "Telefon", "Egy okos telefon", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[9] = { "Telefonk�nyv", "Hogy ha tudni akarod valakinek a sz�m�t.", 1, 2894, 0, 0, 0, -0.01, 0.01, 1.2, -1, -1, false, false }, 
-[10] = { "Kokacserje mag", "Mag.", 1, 1575, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[11] = { "M�kmag", "Egy apr� magvacska.", 1, 1577, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[12] = { "Bibe", "Marihuana lev�l.", 1, 1578, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[13] = { "Kokalev�l", "Kokain lev�l.", 1, 1575, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[14] = { "M�kszalma", "M�k lev�l.", 1, 1577, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[14] = { "Sz�r�tott marihuana", "Sz�r�tott marihuana.", 1, 1578, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[15] = { "Kokain", "Tiszta kokain por.", 1, 1575, 0, 0, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[16] = { "Heroin", "Heroin por.", 1, 1577, 0, 0, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[17] = { "Hasis", "Hasis.", 1, 1578, 0, 0, 0, 0, 0.01, 0.003, -1, -1, true, true }, 
-[18] = { "UV L�mpa", "Speci�lis, hordozhat� UV l�mpa.", 1, 2238, 270, 270, 0, 0, 0.01, 0.9, -1, -1, false, true }, 
-[19] = { "�ngy�jt�", "Fontos, hogy legyen t�zed.", 1, 1271, 270, 270, 0, 0, 0.01, 0.05, -1, -1, false, true }, 
-[20] = { "Akkumul�tor sav", "Ampull�nyi akkumul�tor sav.", 1, 2709, 270, 270, 0, 0, 0.01, 0.005, -1, -1, false, true }, 
-[21] = { "�ngy�jt� benzin", "�ngy�jt� ut�nt�lt� k�szlet.", 1, 1666, 270, 270, 0, 0, 0.01, 0.005, -1, -1, false, true }, 
-[22] = { "Kan�l", "Egy kisebb fajta kan�l.", 1, 2831, 270, 270, 0, 0, 0.01, 0.09, -1, -1, false, true }, 
-[23] = { "Fecskend�", "�res fecskend�.", 1, 1577, 0, 0, 0, 0, 0.01, 0.09, -1, -1, false, true }, 
-[24] = { "Sz�dabikarb�na", "Egy csipetnyi sz�dabikarb�na.", 1, 1950, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, true }, 
-[25] = { "Granul�tum", "Egy kev�s szerves anyag.", 1, 2752, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, true }, 
-[26] = { "Cigipap�r", "1db cigipap�r.", 1, 1580, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, true }, 
-[27] = { "Cigipap�r (rollni)", "20db cigipap�r dobozk�ban.", 1, 1580, 270, 270, 0, 0, 0.01, 0.02, -1, -1, false, true }, 
-[28] = { "Zacsk�", "Egy �tl�tsz� zacsk�.", 1, 2663, 270, 270, 0, 0, 0.01, 0.01, -1, -1, true, true }, 
-[29] = { "Megaf�n", "Megaf�n.", 1, 1563, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[30] = { "Bankk�rtya", "Bankk�rtya", 1, 1581, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, false }, 
-[31] = { "Anyag vas", "Egy darab vas.", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, true, true }, 
-[32] = { "Kalap�cs", "Kalap�cs.", 1, 1271, 270, 270, 0, 0, 0.01, 0.8, -1, -1, false, true }, 
-[33] = { "M�anyag", "M�anyag.", 1, 1271, 270, 270, 0, 0, 0.01, 0.08, -1, -1, true, true }, 
-[34] = { "R�z", "R�z.", 1, 1271, 270, 270, 0, 0, 0.01, 0.15, -1, -1, false, true }, 
-[35] = { "�vegdarab", "Egy darabka �veg.", 1, 1271, 270, 270, 0, 0, 0.01, 0.15, -1, -1, false, true }, 
-[36] = { "Vas�rc", "Vas�rc.", 1, 1271, 270, 270, 0, 0, 2, 2, -1, -1, false, true }, 
-[37] = { "�sv�nyv�z", "�sv�nyv�z.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.5, -1, -1, true, true }, 
-[38] = { "Bor", "Bor.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.8, -1, -1, true, true }, 
-[39] = { "K�la", "K�la.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.5, -1, -1, true, true }, 
-[40] = { "Fanta", "Fanta.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.5, -1, -1, true, true }, 
-[41] = { "P�linka", "P�linka.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.7, -1, -1, true, true }, 
-[42] = { "S�r", "S�r.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.5, -1, -1, true, true }, 
-[43] = { "Whiskey", "Whiskey.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.7, -1, -1, true, true }, 
-[44] = { "Vodka", "Vodka.", 1, 1664, -15, 30, 0, 0.2, 0.01, 0.8, -1, -1, true, true }, 
-[45] = { "Fegyverek A-Zig: AK47", "Fegyverek A-Zig: AK47.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[46] = { "Fegyverek A-Zig: colt", "Fegyverek A-Zig: colt.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[47] = { "Fegyverek A-Zig: Vad�sz puska", "Fegyverek A-Zig: Vad�sz puska.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[48] = { "Fegyverek A-Zig: S�r�tes puska", "Fegyverek A-Zig: S�r�tes puska.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[49] = { "Tiltott n�v�nyek haz�nkban: Marihuana", "Tiltott n�v�nyek haz�nkban: Marihuana.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[50] = { "Tiltott n�v�nyek haz�nkban: Kokacserje", "Tiltott n�v�nyek haz�nkban: Kokacserje.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[51] = { "Tiltott n�v�nyek haz�nkban: M�kvir�g", "Tiltott n�v�nyek haz�nkban: M�kvir�g.", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[52] = { "Cser�p", "Egy �res cser�p, k�v�l� valamit �ltetni.", 1, 2203, 270, 270, 0, 0, 0.01, 1, -1, -1, true, true }, 
-[] = { "Vizes kanna", "Egy kis �ltet� v�z.", 1, 743, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "F�ld", "Egy kisebb fajta zs�k f�ld.", 1, 2060, 270, 270, 0, 0, 0.01, 3, -1, -1, true, true }, 
-[] = { "Marihuana mag", "Mag.", 1, 1575, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[] = { "Kemikus szett", "H�zi kever�k�szlet p�r ampull�val.", 1, 1210, 270, 270, 0, 0, 0.01, 1, -1, -1, false, true }, 
-[] = { "Crack", "Tiszta crack por.", 1, 1580, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[] = { "Heroinos fecskend�", "Fecskend� heroinnal t�ltve.", 1, 1577, 270, 270, 0, 0, 0.01, 0.09, -1, -1, true, true }, 
-[] = { "Cser�p", "Cser�p, benne f�ld �s kokacserje.", 1, 2203, 270, 270, 0, 0, 0.01, 2, -1, -1, false, true }, 
-[] = { "Cser�p", "Cser�p, benne f�ld �s m�k mag.", 1, 2203, 270, 270, 0, 0, 0.01, 2, -1, -1, false, true }, 
-[] = { "Cser�p", "Cser�p, benne f�ld �s marihuana mag.", 1, 2203, 270, 270, 0, 0, 0.01, 2, -1, -1, false, true }, 
-[] = { "M�tr�gya", "Speci�lis f�ld tele t�panyaggal.", 1, 2060, 270, 270, 0, 0, 0.01, 0.5, -1, -1, true, true }, 
-[] = { "F�ves cigi", "Cigi egy kis \"z�lddel\" sp�kelve.", 1, 1578, 270, 270, 0, 0, 0.01, 0.05, -1, -1, true, true }, 
-[] = { "Cigaretta", "Cigi egy kis hasissal.", 1, 2969, 270, 270, 0, 0, 0.01, 0.05, -1, -1, true, true }, 
-[] = { "Boxer", "Kicsit nagyobb pofont lehet vele osztani.", 2, 331, 270, 270, 0, 0, 0.01, 0.5, 1, -1, false, false }, 
-[] = { "Vipera", "Egy sz�p darab vipera.", 2, 333, 270, 270, 0, 0, 0.01, 0.5, 2, -1, false, false }, 
-[] = { "Gumibot", "Gumibot, tartani a rendet.", 2, 334, 270, 270, 0, 0, 0.01, 0.8, 3, -1, false, false }, 
-[] = { "K�s", "Egy fegyvernek min�s�l� k�s.", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Baseball �t�", "Egy sz�p darab baseball �t�.", 2, 336, 270, 270, 0, 0, 0.01, 1, 5, -1, false, false }, 
-[] = { "�s�", "Egy sz�p darab �s�.", 2, 337, 270, 270, 0, 0, 0.01, 1.5, 6, -1, false, false }, 
-[] = { "Bili�rd d�k�", "Egy hossz� bili�rd d�k�.", 2, 338, 270, 270, 0, 0, 0.01, 0.8, 7, -1, false, false }, 
-[] = { "Katana", "�si jap�n ereklye.", 2, 339, 270, 270, 0, 0, 0.01, 3, 8, -1, false, false }, 
-[] = { "L�ncf�r�sz", "Egy benzines motoros l�ncf�r�sz.", 2, 341, 270, 270, 0, 0, 0.01, 2, 9, -1, false, false }, 
-[] = { "Glock 17", "Egy Glock 17-es.", 2, 346, 270, 270, 0, 0, 0.01, 3, 22, 109, false, false }, 
-[] = { "Hangtomp�t�s Colt 45", "Egy Colt45-�s hangtomp�t�val szerelve.", 2, 347, 270, 270, 0, 0, 0.01, 3, 23, 109, false, false }, 
-[] = { "Desert Eagle pisztoly", "Nagy kaliber� Desert Eagle pisztoly.", 2, 348, 270, 270, 0, 0, 0.01, 3, 24, 109, false, false }, 
-[] = { "S�r�tes puska", "Nagy kaliber� s�r�tes puska.", 2, 349, 270, 270, 0, 0, 0.01, 6, 25, 114, false, false }, 
-[] = { "R�vid cs�v� s�r�tes puska", "Nagy kaliber� s�r�tes puska lev�gott cs�vel", 2, 350, 270, 270, 0, 0, 0.01, 6, 26, 114, false, false }, 
-[] = { "SPAZ-12 taktikai s�r�tes puska", "SPAZ-12 taktikai s�r�tes puska elit fegyver.", 2, 351, 270, 270, 0, 0, 0.01, 6, 27, 114, false, false }, 
-[] = { "Uzi", "Uzi g�ppisztoly.", 2, 352, 270, 270, 0, 0, 0.01, 3, 28, 112, false, false }, 
-[] = { "FN P90", "P90-es fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "TEC-9", "TEC-9-es g�pfegyver.", 2, 372, 270, 270, 0, 0, 0.01, 3, 32, 112, false, false }, 
-[] = { "AK-47", "AK-47-es g�pfegyver.", 2, 355, 270, 270, 0, 0, 0.01, 5, 30, 110, false, false }, 
-[] = { "M4", "M4-es g�pfegyver.", 2, 356, 270, 270, 0, 0, 0.01, 5, 31, 113, false, false }, 
-[] = { "Vad�sz puska", "Vad�sz puska a pontos �s hat�rozott l�v�shez.", 2, 357, 270, 270, 0, 0, 0.01, 6, 33, 111, false, false }, 
-[] = { "Remington 700", "Remington 700-as puska.", 2, 358, 270, 270, 0, 0, 0.01, 6, 34, 111, false, false }, 
-[] = { "Rocket Launcher", "Rocket Launcher.", 2, 359, 270, 270, 0, 0, 0.01, 1.23, 35, -1, false, false }, 
-[] = { "Heat-Seeking RPG", "Heat-Seeking RPG.", 2, 360, 270, 270, 0, 0, 0.01, 1.23, 36, -1, false, false }, 
-[] = { "Flamethrower", "Flamethrower.", 2, 361, 270, 270, 0, 0, 0.01, 1.23, 37, -1, false }, 
-[] = { "Minigun", "Minigun.", 2, 362, 270, 270, 0, 0, 0.01, 1.23, 38, -1, false, false }, 
-[] = { "Flashbang", "Flashbang", 2, 342, 270, 270, 0, 0, 0.01, 0.5, 16, -1, false, false }, 
-[] = { "F�st gr�n�t", "F�st gr�n�t a t�k�letes taktikai fegyver.", 2, 343, 270, 270, 0, 0, 0.01, 0.54, 17, -1, false, false }, 
-[] = { "Molotov kokt�l", "Molotov kokt�l.", 2, 344, 270, 270, 0, 0, 0.01, 1.23, 18, -1, false, false }, 
-[] = { "Nagy k�s", "Nagy k�s.", 2, 363, 270, 270, 0, 0, 0.01, 0.4, 39, -1, false, false }, 
-[] = { "Spray kanna", "Spray kanna.", 2, 365, 270, 270, 0, 0, 0.01, 0.3, 41, 151, false, false }, 
-[] = { "Porolt�", "Porolt�", 2, 366, 270, 270, 0, 0, 0.001, 0.001, 42, 98, false, false }, 
-[] = { "Nikon D600", "Camera.", 2, 367, 270, 270, 0, 0, 0.01, 0.3, 43, -1, false, false }, 
-[] = { "Balta", "Balta", 2, 321, 270, 270, 0, 0, 0.01, 1.23, 10, -1, false, false }, 
-[] = { "Dildo", "Dildo.", 2, 321, 322, 270, 0, 0, 0.01, 1.23, 11, -1, false, false }, 
-[] = { "B�rd", "B�rd.", 2, 323, 270, 270, 0, 0, 0.01, 1.23, 12, -1, false, false }, 
-[] = { "Vir�gok", "Egy csokor vir�g.", 2, 325, 270, 270, 0, 0, 0.01, 0.3, 14, -1, false, false }, 
-[] = { "S�tap�lca", "S�tap�lca.", 2, 326, 270, 270, 0, 0, 0.01, 0.2, 15, -1, false, false }, 
-[] = { "�jjel l�t�", "�jjel l�t� szem�veg.", 2, 368, 270, 270, 0, 0, 0.01, 1.23, 44, -1, false, false }, 
-[] = { "Infrav�r�s szem�veg", "Infrav�r�s szem�veg.", 2, 1271, 270, 270, 0, 0, 0.01, 1.23, 45, -1, false, false }, 
-[] = { "Ejt�erny�", "Ejt�erny�.", 2, 371, 270, 270, 0, 0, 0.01, 2.23, 46, -1, false, false }, 
-[] = { "Detonator", "Detonator.", 2, 364, 270, 270, 0, 0, 0.01, 1.23, 40, -1, false, false }, 
-[] = { "5x9mm-es t�lt�ny", "Colt45, Desert 5x9mm-es t�lt�ny", 3, 2358, 270, 270, 0, 0, 0.1, 0.001, -1, -1, true, true }, 
-[] = { "AK47-es t�lt�ny", "AK47-es t�lt�ny", 3, 2358, 270, 270, 0, 0, 0.2, 0.001, -1, -1, true, true }, 
-[] = { "Vad�szpuska t�lt�ny", "Hossz� Vad�szpuska t�lt�ny", 3, 2358, 270, 270, 0, 0, 0.2, 0.001, -1, -1, true, true }, 
-[] = { "Kis g�pfegyver t�lt�nyek", "Kis g�pfegyver t�lt�nyek (UZI,MP5)", 3, 2358, 270, 270, 0, 0, 0.1, 0.001, -1, -1, true, true }, 
-[] = { "M4-es g�pfegyver t�lt�ny", "M4-es g�pfegyver t�lt�ny", 3, 2358, 270, 270, 0, 0, 0.2, 0.001, -1, -1, true, true }, 
-[] = { "S�r�tes t�lt�ny", "S�r�tes t�lt�ny", 3, 2358, 270, 270, 0, 0, 0.2, 0.001, -1, -1, true, true }, 
-[] = { "Falt�r� kos", "Falt�r� kos", 1, 3785, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "Unused", "Unused slot", 1, 1271, 270, 270, 0, 0, 0.01, 1.23 }, 
-[] = { "Maszk", "Maszk", 1, 3785, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "Bilincs", "Bilincs", 1, 2386, 0, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[] = { "Bilincskulcs", "Bilincskulcs", 1, 2386, 0, 0, 0, 0.1, 0.01, 0.005, -1, -1, false, false }, 
-[] = { "Ideiglenes fegyverenged�ly", "A fegyverenged�ly kiv�lt�sa a v�rosh�z�n lehets�ges.", 1, 1581, 270, 270, 0, 0, 0.01, 0.005, -1, -1, false, false }, 
-[] = { "Felv�gott", "Felv�gott", 1, 2804, 270, 270, 0, 0, 0.01, 0.01, -1, -1, false, true }, 
-[] = { "G�zmaszk", "G�zmaszk", 1, 3785, 270, 270, 0, 0, 0.01, 0.1, -1, -1, false, true }, 
-[] = { "GPS", "GPS", 1, 2967, 270, 270, 0, 0, 0.01, 0.3, -1, -1, false, true }, 
-[] = { "Jogos�tv�ny", "Jogos�tv�ny", 1, 1581, 270, 270, 0, 0, 0.01, 0.005, -1, -1, false, false }, 
-[] = { "Benzines kanna", "Benzines kanna", 1, 1650, 270, 270, 0, 0, 0.01, 0.8, -1, -1, false, false }, 
-[] = { "K�sz szendvics", "K�sz szendvics", 1, 2768, 270, 270, 0, 0, 0.01, 0.02, -1, -1, false, false }, 
-[] = { "Tablet", "Tablet", 1, 2190, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, false }, 
-[] = { "Cs� �s el��gy", "Cs� �s el��gy", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "El��gy fels� r�sze", "El��gy fels� r�sze", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Els�t�szerkezet �s tus", "Els�t�szerkezet �s tus", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "N�z�ke", "N�z�ke", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "T�r", "T�r", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Tok", "Tok", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Als� r�sz", "Als� r�sz", 1, 1271, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "Fels� r�sz", "Fels� r�sz", 1, 1271, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "Markolat", "Markolat", 1, 1271, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "Ravasz", "Ravasz", 1, 1271, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "T�r", "T�r", 1, 1271, 270, 270, 0, 0, 0.01, 0.2, -1, -1, false, true }, 
-[] = { "Cs�", "Cs�", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Pump�l�", "Pump�l�", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Ravasz �s tok", "Ravasz �s tok", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Tus", "Tus", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Cs�", "Cs�", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Ravasz �s markolat", "Ravasz �s markolat", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Tok", "Tok", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Tus", "Tus", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Zsemle", "Zsemle", 1, 2880, 265, 0, 0, 0.06, 0.01, 0.05, -1, -1, false, true }, 
-[] = { "Gy�gyszer", "�letment� kapszula", 1, 1271, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, true }, 
-[] = { "Vitamin", "F� az eg�szs�g", 1, 1271, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, true }, 
-[] = { "HI-FI", "HI-FI rendszer", 1, 2226, 0, 0, 0, 0, 0.01, 1.12, -1, -1, false, false }, 
-[] = { "Fest�k patron", "Fest�k patron f�j�s spayekhez", 3, 1271, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, true }, 
-[] = { "Hobby fa", "Hobby fa", 1, 1271, 270, 270, 0, 0, 0.01, 1.12, -1, -1, false, true }, 
-[] = { "E�. doboz", "Eg�szs�g�gyi doboz", 1, 1271, 90, 0, 0, 0.05, 2, 0.25, -1, -1, false, true }, 
-[] = { "Sz�f kulcs", "Sz�f kulcs", 1, 1271, 270, 270, 0, 0, 0.01, 0, -1, -1, false, false }, 
-[] = { "Sokkol�", "Sokkol� pisztoly", 2, 1271, 270, 270, 0, 0, 0.01, 0.25, 22, -1, false, false }, 
-[] = { "Aj�nd�k", "Aj�nd�k, tele meglepet�sekkel", 1, 1271, 270, 270, 0, 0, 0.01, 0.25, -1, -1, false, false }, 
-[] = { "�nnepi s�ti", "Csak egy harap�s �s minden jobb lesz", 1, 1271, 270, 270, 0, 0, 0.01, 0.25, -1, -1, false, false }, 
-[] = { "Aranyr�d", "T�m�r aranyr�d, add el mihamarabb.", 1, 1271, 270, 270, 0, 0, 1, 10, -1, -1, false, false }, 
-[] = { "Kutyas�p", "Legegyszer�bb m�dja, hogy kuty�d megtal�ljon", 1, 1271, 270, 270, 0, 0, 1, 0.01, -1, -1, false, false }, 
-[] = { "Jutalom falat", "Melyik kutya ne szeretn�?", 1, 1271, 270, 270, 0, 0, 1, 0.01, -1, -1, false, true }, 
-[] = { "Kutyat�p", "Finom, �zletes kutyakaja", 1, 1271, 270, 270, 0, 0, 1, 1, -1, -1, false, true }, 
-[] = { "Kutyasnack", "A kuty�k Snickers-e", 1, 1271, 270, 270, 0, 0, 1, 0.01, -1, -1, false, true }, 
-[] = { "PPSnack", "Minden ami t�pl�l�, ebben megtal�lhat�", 1, 1271, 270, 270, 0, 0, 1, 0.01, -1, -1, false, true }, 
-[] = { "Cs�k�ny", "Cs�k�ny", 2, 323, 270, 270, 0, 0, 0.01, 1.23, 15, -1, false, false }, 
-[] = { "Kisebb pet�rda", "Egy pet�rda, mely a szilveszter m�r m�r hagyom�nyos kell�ke.", 1, 1271, 270, 270, 0, 0, 0.005, 0.005, -1, -1, false, true }, 
-[] = { "Nagyobb pet�rda", "Egy pet�rda, mely a szilveszter m�r m�r hagyom�nyos kell�ke.", 1, 1271, 270, 270, 0, 0, 0.005, 0.005, -1, -1, false, true }, 
-[] = { "Magyaros Pizza", "Magyaros Pizza.", 1, 1271, 270, 270, 0, 0, 0.5, 0.5, -1, -1, false, true }, 
-[] = { "Mozerella Pizza", "Mozerella Pizza.", 1, 1271, 270, 270, 0, 0, 0.5, 0.5, -1, -1, false, true }, 
-[] = { "Bolognese Pizza", "Bolognese Pizza.", 1, 1271, 270, 270, 0, 0, 0.5, 0.5, -1, -1, false, true }, 
-[] = { "Spaghetti Bolognese", "Spaghetti Bolognese", 1, 1271, 270, 270, 0, 0, 0.5, 0.5, -1, -1, false, true }, 
-[] = { "Spaghetti Carbonara", "Spaghetti Carbonara", 1, 1271, 270, 270, 0, 0, 0.5, 0.5, -1, -1, false, true }, 
-[] = { "Lasagne", "Lasagne", 1, 1271, 270, 270, 0, 0, 0.5, 0.5, -1, -1, false, true }, 
-[] = { "D�r�m", "D�r�m", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Baklava", "Baklava", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Tacos", "Tacos", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Burritos", "Burritos", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Quesadilla", "Quesadilla", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Fajitas", "Fajitas", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Sajtos Hamburger", "Sajtos Hamburger", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Dupla h�sos hamburger", "Dupla h�sos hamburger", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "S�ltkrumpli", "S�ltkrumpli", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Presso Caffe", "Presso Caffe", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Capucino", "Capucino", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Cafe Latte", "Cafe Latte", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "F�rr� csoki", "F�rr� csoki", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Coca Cola", "Coca Cola", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Szentelt V�z", "Visszahozza a kuty�dat a pokol legm�lyebb bugyraib�l.", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Instant Fix K�rtya", "Amikor egy isteni er� �jj��leszti az aut�dat, amiben �lsz.", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Instant �zemanyag K�rtya", "S l�n, teli a tank, ha a kocsiba �lsz.", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Instant Gy�gy�t�s", "S l�n, egy isteni csoda felseg�t t�ged.", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Cigaretta", "Egy csomag cigaretta.", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "P�nz-kazetta", "P�nz-kazetta.", 1, 1271, 270, 270, 0, 0, 0, 10, -1, -1, false, true }, 
-[] = { "B�nusz toj�s", "B�nusz toj�s", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Speci�lis locsol� k�lni", "Exkluz�v term�k", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Hagyom�nyos locsol� k�lni", "Olcs� �s meglehet�sen b�d�s k�lni", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Igazi piros toj�s", "Ritka mint a feh�r holl�", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "A t�k�letes sonka receptje", "T�bb sz�z �ves titok", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Medve b�r", "Medve b�r", 1, 1828, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "Medve tr�fea", "Medve tr�fea", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "Vaddiszn� b�r", "Vaddiszn� b�r", 1, 1828, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "Vaddiszn� tr�fea", "Vaddiszn� tr�fea", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "�z b�r", "�z b�r", 1, 1828, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "�z tr�fea", "�z tr�fea", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "Dob�kocka", "Dob�kocka", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "K�rtyapakli", "K�rtyapakli", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Jelv�ny", "Jelv�ny", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Szem�lyigazolv�ny", "Szem�lyigazolv�ny", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Jogos�tv�ny", "Jogos�tv�ny", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Hivatalos VB Labda", "Hivatalos VB Labda", 1, 3469, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "Kar�csonyfa", "Egy d�szes kar�csonyfa", 1, 7027, 270, 270, 0, 0, 0, 1, -1, -1, true, false }, 
-[] = { "Bot", "Horg�szbot alapj�ul szolg�l� bot", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, false, false }, 
-[] = { "Damil", "10 m�ter damil", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, true }, 
-[] = { "Csali �s �sz�", "Csali �s �sz� szett", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, true }, 
-[] = { "Horog", "Egy hegyes horog", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, true }, 
-[] = { "Horg�szbot", "K�sz horg�szbot", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, false }, 
-[] = { "F�r�sz", "Egy massz�v ac�lb�l k�sz�lt f�r�sz.", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, false }, 
-[] = { "Bakancs", "Egy b�d�s bakancs", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, false, false }, 
-[] = { "H�n�r", "Teny�rnyi cs�sz�s maszat", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "D�gl�tt hal", "Ev�sre kev�sb� alkalmas hal", 1, 1736, 270, 270, 0, 0, 0, 0.5, -1, -1, false, true }, 
-[] = { "Konzervdoboz", "�res konzervdoboz", 1, 1736, 270, 270, 0, 0, 0, 0.3, -1, -1, false, false }, 
-[] = { "Ismeretlen hal", "Senki se tudja mi ez, de aranyat �r", 1, 1736, 270, 270, 0, 0, 0, 2, -1, -1, false, false }, 
-[] = { "C�pa", "B�bic�pa", 1, 1736, 270, 270, 0, 0, 0, 7.5, -1, -1, false, false }, 
-[] = { "Polip", "Polip", 1, 1736, 270, 270, 0, 0, 0, 2, -1, -1, false, false }, 
-[] = { "�rd�ghal", "�rd�ghal", 1, 1736, 270, 270, 0, 0, 0, 2, -1, -1, false, false }, 
-[] = { "Kardhal", "Kardhal", 1, 1736, 270, 270, 0, 0, 0, 3, -1, -1, false, false }, 
-[] = { "Szamur�j r�k", "Szamur�j r�k", 1, 1736, 270, 270, 0, 0, 0, 0.5, -1, -1, false, false }, 
-[] = { "Lep�nyhal", "Lep�nyhal", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, false, false }, 
-[] = { "S�g�r", "S�g�r", 1, 1736, 270, 270, 0, 0, 0, 2, -1, -1, false, false }, 
-[] = { "Harcsa", "Harcsa", 1, 1736, 270, 270, 0, 0, 0, 2, -1, -1, false, false }, 
-[] = { "Ponty", "Ponty", 1, 1736, 270, 270, 0, 0, 0, 2, -1, -1, false, false }, 
-[] = { "Tengericsillag", "Tengericsillag", 1, 1736, 270, 270, 0, 0, 0, 0.2, -1, -1, false, false }, 
-[] = { "Sz�r�tott marihuana", "Sz�r�tott marihuana.", 1, 1575, 270, 270, 0, 0, 0.01, 0.001, -1, -1, false, false }, 
-[] = { "Kokain", "Tiszta kokain por.", 1, 1575, 0, 0, 0, 0, 0.01, 0.001, -1, -1, true, false }, 
-[] = { "A fegyvermester: Glock 17", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: A hangtomp�t�s Colt-45", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: Desert Eagle", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: UZI & TEC-9", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: MP5", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: AK-47", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: M4", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: Vad�sz-Mesterl�v�sz puska", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: S�r�tes puska", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: Taktikai s�r�tes puska", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "A fegyvermester: A lef�r�szelt s�r�tes", "Az al�bbi k�nyv elolvas�s�val az adott fegyver mester�v� v�lhatsz", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "Flex", "Egy flex", 1, 2894, 270, 270, 0, 0, 0.01, 1, -1, -1, false, false }, 
-[] = { "P�pos horg�szhal", "P�pos horg�szhal", 1, 1736, 270, 270, 0, 0, 1, 1, -1, -1, false, false }, 
-[] = { "L�da", "L�da", 1, 1736, 270, 270, 0, 0, 1, 3, -1, -1, false, false }, 
-[] = { "R�k", "R�k", 1, 1736, 270, 270, 0, 0, 1, 0.5, -1, -1, false, false }, 
-[] = { "Szakadt hal�szhal�", "Szakadt hal�szhal�", 1, 1736, 270, 270, 0, 0, 1, 0.5, -1, -1, false, false }, 
-[] = { "�ri�spolip", "�ri�spolip", 1, 1736, 270, 270, 0, 0, 1, 5, -1, -1, false, false }, 
-[] = { "P�r�lyc�pa", "P�r�lyc�pa", 1, 1736, 270, 270, 0, 0, 1, 4, -1, -1, false, false }, 
-[] = { "Koi ponty", "Koi ponty", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "Antik t�rzsi maszk", "Antik t�rzsi maszk", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "Antik szobor", "Antik szobor", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "Piranha", "Piranha", 1, 1736, 270, 270, 0, 0, 1, 0.5, -1, -1, false, false }, 
-[] = { "G�mbhal", "G�mbhal", 1, 1736, 270, 270, 0, 0, 1, 0.5, -1, -1, false, false }, 
-[] = { "Rozsd�s v�d�r", "Rozsd�s v�d�r", 1, 1736, 270, 270, 0, 0, 1, 0.5, -1, -1, false, false }, 
-[] = { "T�r�tt deszka", "T�r�tt deszka", 1, 1736, 270, 270, 0, 0, 1, 1, -1, -1, false, false }, 
-[] = { "C�pafog nyakl�c", "C�pafog nyakl�c", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "Koponya", "Koponya", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "Tekn�s", "Tekn�s", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "Aut�bomba", "Aut�bomba", 1, 1736, 270, 270, 0, 0, 3, 5, -1, -1, false, false }, 
-[] = { "M�reg Injekci�", "M�reg Injekci�", 1, 1736, 270, 270, 0, 0, 0.5, 0.1, -1, -1, false, false }, 
-[] = { "�tlev�l", "�tlev�l", 1, 1736, 270, 270, 0, 0, 0.5, 0.1, -1, -1, false, false }, 
-[] = { "Winter AK-47", "Winter Camo AK-47", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Camo AK-47", "Terep mint�s AK-47 2", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Digit AK-47", "Digit camo AK-47", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Gold AK-47", "Arany AK-47 ver. 1", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Gold AK-47", "Arany AK-47 ver. 2", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Silver AK-47", "Ez�st AK-47-es", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Hello AK-47", "Pink Camo AK-47", 2, 355, 270, 270, 0, 0, 0.01, 6, 30, 110, false, false }, 
-[] = { "Camo Desert Eagle", "Terep mint�s Desert Eagle pisztoly", 2, 348, 270, 270, 0, 0, 0.01, 3, 24, 109, false, false }, 
-[] = { "Gold Desert Eagle", "Arany Desert Eagle pisztoly", 2, 348, 270, 270, 0, 0, 0.01, 3, 24, 109, false, false }, 
-[] = { "Winter Sniper", "Winter Camo Sniper", 2, 358, 270, 270, 0, 0, 0.01, 6, 34, 111, false, false }, 
-[] = { "Camo Sniper", "Camo Sniper", 2, 358, 270, 270, 0, 0, 0.01, 6, 34, 111, false, false }, 
-[] = { "Camo P90", "Camo P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Winter Camo P90", "Winter Camo P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Black P90", "Black P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Gold Flow P90", "Gold Flow P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Camo knife", "Terep mint�s k�s.", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Rust knife", "Rozsd�s k�s", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Carbon knife", "Carbonb�l k�sz�lt k�s", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Bronze UZI", "Bronz UZI g�pfegyver.", 2, 372, 270, 270, 0, 0, 0.01, 3, 28, 112, false, false }, 
-[] = { "Camo UZI", "Terep mint�s UZI.", 2, 372, 270, 270, 0, 0, 0.01, 3, 28, 112, false, false }, 
-[] = { "Gold UZI", "Arany UZI g�pfegyver.", 2, 372, 270, 270, 0, 0, 0.01, 3, 28, 112, false, false }, 
-[] = { "Winter UZI", "Winter style UZI.", 2, 372, 270, 270, 0, 0, 0.01, 3, 28, 112, false, false }, 
-[] = { "OBD scanner", "OBD scanner", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[] = { "M�szaki adatlap", "M�szaki adatlap", 1, 1736, 270, 270, 0, 0, 0.5, 0.1, -1, -1, false, false }, 
-[] = { "Forgalmi enged�ly", "Forgalmi enged�ly", 1, 1736, 270, 270, 0, 0, 0.5, 0.1, -1, -1, false, false }, 
-[] = { "Traffipax radar", "Traffipax radar", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[] = { "Villog�", "Villog�", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[] = { "Villog� (Lev�tel)", "Villog�", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.8, -1, -1, false, false }, 
-[] = { "Black Jack Sorsjegy", "Black Jack Sorsjegy", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "Lott�szelv�ny", "Lott�szelv�ny", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "Lott� nyugta", "Lott� nyugta", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "Money Mania Sorsjegy", "Money Mania Sorsjegy", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "T�zij�t�k #1", "T�zij�t�k", 1, 2886, 270, 0, 0, 0.1, 0.01, 1, -1, -1, false, false }, 
-[] = { "T�zij�t�k #2", "T�zij�t�k", 1, 2886, 270, 0, 0, 0.1, 0.01, 1, -1, -1, false, false }, 
-[] = { "Blueprint", "Blueprint", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.01, -1, -1, false, false }, 
-[] = { "Horg�szbot (Csali n�lk�l)", "K�sz horg�szbot, csali n�lk�l", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Markolat", "Markolat", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Penge", "Penge", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "T�r", "T�r", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Markolat", "Markolat", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Cs�", "Cs�", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Fels� r�sz", "Fels� r�sz", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Fels� r�sz", "Fels� r�sz", 1, 1736, 270, 270, 0, 0, 0, 1.1, -1, -1, false, true }, 
-[] = { "Fegyverenged�ly", "Fegyverenged�ly", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Ad�sv�teli szerz�d�s", "Ad�sv�teli szerz�d�s", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Horg�szenged�ly", "Horg�szenged�ly", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "�res ad�sv�teli", "�res ad�sv�teli", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Toll", "Toll", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Csekk", "Csekk", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Csekkf�zet", "Csekkf�zet", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "N�vc�dula", "N�vc�dula", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Taxi l�mpa", "Taxi l�mpa", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, false, false }, 
-[] = { "Taxi l�mpa (lev�tel)", "Taxi l�mpa (lev�tel)", 1, 1736, 270, 270, 0, 0, 0, 1, -1, -1, false, false }, 
-[] = { "T�vir�ny�t�s aut�bomba", "T�vir�ny�t�s aut�bomba", 1, 1736, 270, 270, 0, 0, 0, 3, -1, -1, false, true }, 
-[] = { "Deton�tor", "Deton�tor", 1, 1736, 270, 270, 0, 0, 0, 0.5, -1, -1, false, false }, 
-[] = { "Antenna", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Ventill�tor", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Tranzisztor", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "NY�K", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Mikroprocesszor", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Mini kijelz�", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Mikrofon", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Eleml�mpa LED", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Kondenz�tor", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Hangsz�r�", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Nyom�gomb", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Ellen�ll�s", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Elem", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "M�anyag doboz", "Alkatr�sz az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Walkie Talkie", "K�sz term�k az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "T�pegys�g", "K�sz term�k az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Sz�mol�g�p", "K�sz term�k az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "R�di�", "K�sz term�k az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Eleml�mpa", "K�sz term�k az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "Diktafon", "K�sz term�k az elektronikai gy�rban", 1, 1736, 270, 270, 0, 0, 0, 0.1, -1, -1, false, false }, 
-[] = { "No Limit P90", "No Limit P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Oni P90", "Oni P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Fekete s�r�tes puska", "Nagy kaliber� s�r�tes puska.", 2, 349, 270, 270, 0, 0, 0.01, 6, 25, 114, false, false }, 
-[] = { "Fekete 2 s�r�tes puska", "Nagy kaliber� s�r�tes puska.", 2, 349, 270, 270, 0, 0, 0.01, 6, 25, 114, false, false }, 
-[] = { "Arany s�r�tes puska", "Nagy kaliber� s�r�tes puska.", 2, 349, 270, 270, 0, 0, 0.01, 6, 25, 114, false, false }, 
-[] = 
-[] = { "Rozsd�s s�r�tes puska", "Nagy kaliber� s�r�tes puska.", 2, 349, 270, 270, 0, 0, 0.01, 6, 25, 114, false, false }, 
-[] = 
-[] = { "Carbon P90", "Carbon P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Wood P90", "Wood P90-�s fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Nike: A nagy bumm", "Egy st�lusos t�ska, ami egy bomb�t tartalmaz.", 1, 353, 270, 270, 0, 0, 0.01, 1.5, -1, -1, false, false }, 
-[] = { "Nike deton�tor", "Mag�t�l �rtet�d� mit tud.", 1, 353, 270, 270, 0, 0, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "Egy 'Ferrari 250 GTO' kulcsa", "Egy 'Ferrari 250 GTO' kulcsa", 1, 353, 270, 270, 0, 0, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "Barracuda", "Barracuda", 1, 1736, 270, 270, 0, 0, 1, 2.5, -1, -1, false, false }, 
-[] = { "Mahi Mahi", "Mahi Mahi", 1, 1736, 270, 270, 0, 0, 1, 3, -1, -1, false, false }, 
-[] = { "Makr�la", "Makr�la", 1, 1736, 270, 270, 0, 0, 1, 1.5, -1, -1, false, false }, 
-[] = { "P�vahal", "P�vahal", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "R�ja", "R�ja", 1, 1736, 270, 270, 0, 0, 1, 4, -1, -1, false, false }, 
-[] = { "Piros Snapper", "Piros Snapper", 1, 1736, 270, 270, 0, 0, 1, 1, -1, -1, false, false }, 
-[] = { "Kakashal", "Kakashal", 1, 1736, 270, 270, 0, 0, 1, 3, -1, -1, false, false }, 
-[] = { "Szakadt damil", "Szakadt damil", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "K�k tonhal", "K�k tonhal", 1, 1736, 270, 270, 0, 0, 1, 3, -1, -1, false, false }, 
-[] = { "Viperahal", "Viperahal", 1, 1736, 270, 270, 0, 0, 1, 1, -1, -1, false, false }, 
-[] = { "P�nzkazetta", "P�nzkazetta", 1, 1736, 270, 270, 0, 0, 1, 2, -1, -1, false, false }, 
-[] = { "V�s�", "V�s�", 1, 1271, 270, 270, 0, 0, 0.01, 0.5, -1, -1, false, true }, 
-[] = { "Kakashal (verseny)", "Kakashal (verseny)", 1, 1736, 270, 270, 0, 0, 1, 1, -1, -1, false, false }, 
-[] = { "Csipesz", "Csipesz", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "Kioper�lt goly�", "Kioper�lt goly�", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "Jegyzetf�zet", "Jegyzetf�zet", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "F�zetlap", "F�zetlap", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "T�k", "T�k", 1, 9953, 270, 270, 0, 0, 1, 5, -1, -1, false, false }, 
-[] = { "Halloween P90", "P90-es fegyver.", 2, 353, 270, 270, 0, 0, 0.01, 3, 29, 112, false, false }, 
-[] = { "Tombola", "Tembola", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "T�", "T�", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "K�tszer", "K�tszer", 1, 1736, 270, 270, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "�res kanna", "�res kanna", 1, 0, 0, 0, 0, 0, 1, 0.25, -1, -1, false, false }, 
-[] = { "Rohadt n�v�ny", "Rohadt n�v�ny", 1, 0, 0, 0, 0, 0, 1, 0.3, -1, -1, false, true }, 
-[] = { "TV Paprika", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.125, -1, -1, false, true }, 
-[] = { "Almapaprika", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Chili", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.05, -1, -1, false, true }, 
-[] = { "V�r�shagyma", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.05, -1, -1, false, true }, 
-[] = { "Lilahagyma", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.05, -1, -1, false, true }, 
-[] = { "S�t�t�k", "Term�s", 1, 0, 0, 0, 0, 0, 1, 2, -1, -1, false, true }, 
-[] = { "S�rgadinnye", "Term�s", 1, 0, 0, 0, 0, 0, 1, 1, -1, -1, false, true }, 
-[] = { "G�r�gdinnye", "Term�s", 1, 0, 0, 0, 0, 0, 1, 4, -1, -1, false, true }, 
-[] = { "Sal�ta", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.5, -1, -1, false, true }, 
-[] = { "Retek", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.06, -1, -1, false, true }, 
-[] = { "S�rgar�pa", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.06, -1, -1, false, true }, 
-[] = { "Petrezselyem", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.05, -1, -1, false, true }, 
-[] = { "Karal�b�", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.35, -1, -1, false, true }, 
-[] = { "K�poszta", "Term�s", 1, 0, 0, 0, 0, 0, 1, 1, -1, -1, false, true }, 
-[] = { "Uborka", "Term�s", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: TV Paprika", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Almapaprika", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Chili", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Dughagyma: V�r�shagyma", "Dughagyma", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Dughagyma: Lilahagyma", "Dughagyma", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: S�t�t�k", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: S�rgadinnye", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: G�r�gdinnye", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Sal�ta", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Retek", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: S�rgar�pa", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Petrezselyem", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Karal�b�", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: K�poszta", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Vet�mag: Uborka", "Vet�mag", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Pr�mium n�v�nyt�pszer", "Pr�mium n�v�nyt�pszer", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Fegyverjav�t� k�rtya", "Csak skines fegyverhez!", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, false }, 
-[] = { "Tiger knife", "Tigris mint�s k�s.", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Digit knife", "Digit camo mint�s k�s.", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Spider knife", "Spider camo mint�s k�s.", 2, 335, 270, 270, 0, 0, 0.01, 0.8, 4, -1, false, false }, 
-[] = { "Damascus b�rd", "Damascus b�rd.", 2, 323, 270, 270, 0, 0, 0.01, 1.23, 12, -1, false, false }, 
-[] = { "Rust b�rd", "Rust b�rd.", 2, 323, 270, 270, 0, 0, 0.01, 1.23, 12, -1, false, false }, 
-[] = { "Fegyh�z azonos�t�", "Fegyh�z azonos�t�", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Szonda", "Szonda", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Szonda", "Szonda", 1, 1736, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "B�nusztoj�s", "B�nusztoj�s", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Csokitoj�s", "Csokitoj�s", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Z�ptoj�s", "Z�ptoj�s", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, true }, 
-[] = { "Az M3 e92 kulcsa", "Az M3 e92 kulcsa", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "�res k�lni", "�res k�lni", 1, 1271, 270, 270, 0, 0, 0, 0, -1, -1, false, false }, 
-[] = { "Szerencsemalac sorsjegy", "Szerencsemalac sorsjegy", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "P�nzlift sorsjegy", "P�nzlift sorsjegy", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "�res", "�res", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "Kutya�tnevez� k�rtya", "Kutya�tnevez� k�rtya", 1, 1271, 270, 270, 0, 0, 0.2, 0.2, -1, -1, false, true }, 
-[] = { "�res", "�res", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "�res", "�res", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.1, -1, -1, false, false }, 
-[] = { "Balta", "Balta", 2, 321, 270, 270, 0, 0, 0.01, 1.23, 10, -1, false, false }, 
-[] = { "�res", "�res", 1, 1736, 270, 270, 0, 0, 0, 0.01, -1, -1, false, false }, 
-[] = { "Parazen mag", "Mag.", 1, 1575, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[] = { "SHTG t�poldat", "See How They Grow :)", 1, 743, 270, 270, 0, 0, 0.01, 1, -1, -1, true, true }, 
-[] = { "SHTG t�poldat koncentr�tum", "See How They Grow :)", 1, 0, 0, 0, 0, 0, 1, 0.1, -1, -1, false, true }, 
-[] = { "Parazeldum por", "Parazeldum por.", 1, 1575, 0, 0, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[] = { "Parazen vir�g", "Parazen vir�g", 1, 1575, 270, 270, 0, 0, 0.01, 0.001, -1, -1, true, true }, 
-[] = { "Toj�s", "Egy to�s", 1, 1575, 270, 270, 0, 0, 0, 0.06, -1, -1, true, true }, 
-[] = { "Friss tej", "Egy �veg friss tej", 1, 1575, 270, 270, 0, 0, 0, 1, -1, -1, true, true }, 
-[] = { "Milka csoki", "Var�zslatos csokol�d�", 1, 1575, 270, 270, 0, 0, 0, 0.1, -1, -1, true, true }, 
-[] = { "Farm f�r�hely k�rtya", "Megn�veli az �llattart�sra berendezkedett farmok f�r�hely�t", 1, 1575, 270, 270, 0, 0, 0, 0, -1, -1, true, true }, 
-[] = { "Haszon�llat stats k�rtya", "100%-osra �ll�tja az �llat �sszes statj�t", 1, 1575, 270, 270, 0, 0, 0, 0, -1, -1, true, true }, 
-[] = { "Haszon�llat szteroid k�rtya", "Ukr�n n�veked�si hormon", 1, 1575, 270, 270, 0, 0, 0, 0, -1, -1, true, true }, 
-[] = { "T�zij�t�k #3", "T�zij�t�k", 1, 2886, 270, 0, 0, 0.1, 0.01, 1, -1, -1, false, false }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Bikakábel", "Bikak�bel", 1, 1575, 270, 270, 0, 0, 0, 1.25, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Fémdetektor", "Vinnyog a fémre", 1, 2886, 270, 0, 0, 0.1, 0.01, 2, false, false }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Üres item - v4", "Üres item - v4", 1, 1575, 270, 270, 0, 0, 0, 99999, -1, -1, true, true }, 
-[] = { "Láda", "Láda", 1, 2886, 270, 0, 0, 0.1, 3, 1, false, false }, 
-[] = { "Láda", "Láda", 1, 2886, 270, 0, 0, 0.1, 3, 1, false, false }, 
-[] = { "Láda", "Láda", 1, 2886, 270, 0, 0, 0.1, 3, 1, false, false }, 
-[] = { "Láda", "Láda", 1, 2886, 270, 0, 0, 0.1, 3, 1, false, false }, 
-[] = { "Láda", "Láda", 1, 2886, 270, 0, 0, 0.1, 3, 1, false, false }, 
-[] = { "Arany óra", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.15, false, false }, 
-[] = { "Üres háborús lőszer", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 1.5, false, false }, 
-[] = { "Antik étkőszlet", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.75, false, false }, 
-[] = { "Kehely", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.5, false, false }, 
-[] = { "Kereszt", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.125, false, false }, 
-[] = { "Aranylánc", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.05, false, false }, 
-[] = { "Aranymedál", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.25, false, false }, 
-[] = { "Antik pénz", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.01, false, false }, 
-[] = { "Antik tányér", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.5, false, false }, 
-[] = { "Üdítős doboz", "Fődes lút", 1, 2886, 270, 0, 0, 0.1, 0.01, 0.01, false, false } }
+function respc(_ARG_0_)
+  return _ARG_0_
+end
+engineReplaceModel(engineLoadDFF("files/wheel_o_fortune.dff"), 1895)
+addEventHandler("onClientElementStreamIn", getRootElement(), function()
+  if getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE0_[source]) then
+      destroyElement(_UPVALUE0_[source])
+    end
+    _UPVALUE0_[source] = nil
+    _UPVALUE0_[source] = createObject(1898, unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + 2.2, 0, 0, unpack(getElementData(source, "fortunePos")))
+    setElementInterior(_UPVALUE0_[source], getElementInterior(source))
+    setElementDimension(_UPVALUE0_[source], getElementDimension(source))
+  end
+end)
+addEventHandler("onClientElementDataChange", getRootElement(), function(_ARG_0_)
+  if source == localPlayer and _ARG_0_ == "playerUsingFortune" and not getElementData(localPlayer, "playerUsingFortune") and _UPVALUE0_ then
+    closeTheTable()
+  end
+  if _ARG_0_ == "fortunePos" and getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE1_[source]) then
+      destroyElement(_UPVALUE1_[source])
+    end
+    _UPVALUE1_[source] = nil
+    _UPVALUE1_[source] = createObject(1898, unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + rotateAround(unpack(getElementData(source, "fortunePos"))), unpack(getElementData(source, "fortunePos")) + 2.2, 0, 0, unpack(getElementData(source, "fortunePos")))
+    setElementInterior(_UPVALUE1_[source], getElementInterior(source))
+    setElementDimension(_UPVALUE1_[source], getElementDimension(source))
+  end
+end)
+addEventHandler("onClientElementDestroy", getRootElement(), function()
+  if getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE0_[source]) then
+      destroyElement(_UPVALUE0_[source])
+    end
+    _UPVALUE0_[source] = nil
+  end
+end)
+addEventHandler("onClientElementStreamOut", getRootElement(), function()
+  if getElementData(source, "fortunePos") then
+    if isElement(_UPVALUE0_[source]) then
+      destroyElement(_UPVALUE0_[source])
+    end
+    _UPVALUE0_[source] = nil
+  end
+end)
+addEventHandler("onClientRender", getRootElement(), function()
+  for _FORV_3_, _FORV_4_ in pairs(_UPVALUE0_) do
+    _UPVALUE1_[_FORV_4_] = (_UPVALUE1_[_FORV_4_] or 0) + math.abs(getElementRotation(_FORV_3_) - (_UPVALUE2_[_FORV_4_] or 0))
+    _UPVALUE2_[_FORV_4_] = getElementRotation(_FORV_3_)
+    if _UPVALUE1_[_FORV_4_] > 4 then
+      _UPVALUE1_[_FORV_4_] = 0
+      setElementInterior(playSound3D("files/wheel.mp3", getElementPosition(_FORV_4_)), getElementInterior(_FORV_4_))
+      setElementDimension(playSound3D("files/wheel.mp3", getElementPosition(_FORV_4_)), getElementDimension(_FORV_4_))
+    end
+    if _UPVALUE1_[_FORV_4_] > 1 then
+      setElementRotation(_FORV_4_, 0, -(_UPVALUE1_[_FORV_4_] - 1) / 3 * -10, getElementRotation(_FORV_3_))
+    end
+  end
+end)
+addEventHandler("onClientElementDataChange", localPlayer, function(_ARG_0_)
+  if _ARG_0_ == "char.slotCoins" then
+    _UPVALUE0_ = getElementData(source, "char.slotCoins")
+  end
+end)
+addEvent("openFortuneWheel", true)
+addEventHandler("openFortuneWheel", getRootElement(), function(_ARG_0_, _ARG_1_)
+  Roboto = dxCreateFont("files/Roboto.ttf", 14, false, "antialiased")
+  gtaFont = dxCreateFont("files/gtaFont.ttf", 20, false, "antialiased")
+  tooltipFont = dxCreateFont("files/Roboto.ttf", 18, false, "antialiased")
+  _UPVALUE0_ = _ARG_1_
+  addEventHandler("onClientRender", getRootElement(), fortuneWheel)
+  theX, theY = _UPVALUE1_ / 2, _UPVALUE2_ / 2
+  _UPVALUE3_ = 0
+end)
+function closeTheTable(_ARG_0_)
+  triggerServerEvent("closeTheWheel", localPlayer, _UPVALUE0_, _ARG_0_)
+  removeEventHandler("onClientRender", getRootElement(), fortuneWheel)
+  if isElement(Roboto) then
+    destroyElement(Roboto)
+  end
+  if isElement(gtaFont) then
+    destroyElement(gtaFont)
+  end
+  if isElement(tooltipFont) then
+    destroyElement(tooltipFont)
+  end
+  _UPVALUE0_ = nil
+  _UPVALUE1_ = 0
+  _UPVALUE2_ = 0
+  _UPVALUE3_ = {}
+  _UPVALUE4_ = {}
+  exitingProcessStarted = false
+end
+;({})[0] = {
+  [0] = "x20",
+  [1] = "x10"
+}
+;({})[1] = {
+  [0] = "x5",
+  [1] = "x2"
+}
+;({})[2] = {
+  [0] = "x1",
+  [1] = "\226\152\133 x40"
+}
+;({})[0] = {
+  [0] = 20,
+  [1] = 10
+}
+;({})[1] = {
+  [0] = 5,
+  [1] = 2
+}
+;({})[2] = {
+  [0] = 1,
+  [1] = 40
+}
+function showTooltip(_ARG_0_, _ARG_1_, _ARG_2_, _ARG_3_)
+  _ARG_2_ = tostring(_ARG_2_)
+  if _ARG_3_ then
+    _ARG_3_ = tostring(_ARG_3_)
+  else
+    return
+  end
+  if _ARG_3_ then
+    _ARG_2_ = "#7cc576" .. _ARG_2_ .. [[
+
+#ffffff]] .. _ARG_3_
+  end
+  _ARG_0_ = math.max(10, math.min(_ARG_0_, _UPVALUE0_ - math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20) - 10))
+  _ARG_1_ = math.max(10, math.min(_ARG_1_, _UPVALUE1_ - math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20) - 10))
+  dxDrawRectangle(_ARG_0_, _ARG_1_, math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20), 10 * (5 + string.gsub(_ARG_3_, "\n", "")), _UPVALUE2_, true)
+  dxDrawText(_ARG_2_, _ARG_0_, _ARG_1_, _ARG_0_ + math.max(dxGetTextWidth(_ARG_2_, 1, "clear", true) + 20, dxGetTextWidth(_ARG_3_, 1, "clear", true) + 20), _ARG_1_ + 10 * (5 + string.gsub(_ARG_3_, "\n", "")), _UPVALUE3_, 0.5, tooltipFont, "center", "center", false, false, true, true)
+end
+addEvent("onFortuneBetPlaced", true)
+addEventHandler("onFortuneBetPlaced", getRootElement(), function(_ARG_0_, _ARG_1_, _ARG_2_)
+  _UPVALUE0_ = _UPVALUE0_ + _ARG_2_
+  _UPVALUE1_[_ARG_0_ .. "," .. _ARG_1_] = (_UPVALUE1_[_ARG_0_ .. "," .. _ARG_1_] or 0) + _ARG_2_
+end)
+function fortuneWheel()
+  if getCursorPosition() and (exitingProcessStarted or getCursorPosition() * _UPVALUE0_ >= theX + respc(150) - 25 and getCursorPosition() * _UPVALUE0_ <= theX + respc(150) - 5 and getCursorPosition() * _UPVALUE1_ >= theY - 150 - 4 and getCursorPosition() * _UPVALUE1_ <= theY - 150 + 26) and not exitingProcessStarted and getKeyState("mouse1") then
+    if _UPVALUE2_ > 0 then
+      if not cantNotiState then
+        cantNotiState = true
+        exports.lv_accounts:showInfo("e", "El�bb p�rgess, vagy vedd le a t�tjeidet!")
+      elseif not getKeyState("mouse1") then
+        cantNotiState = false
+      end
+    else
+      cantNotiState = false
+      exitingProcessStarted = true
+      closeTheTable()
+      return
+    end
+  end
+  dxDrawRectangle(theX - respc(150), theY - 150 - 4, 300, 308, tocolor(0, 0, 0, 150))
+  dxDrawRectangle(theX - respc(150), theY - 150 - 4, 300, 30, tocolor(0, 0, 0, 75))
+  if getCursorPosition() * _UPVALUE0_ then
+    if getKeyState("mouse1") then
+      if getCursorPosition() * _UPVALUE0_ >= theX - respc(150) and getCursorPosition() * _UPVALUE0_ <= theX + respc(150) and getCursorPosition() * _UPVALUE1_ >= theY - 150 - 4 and getCursorPosition() * _UPVALUE1_ <= theY - 150 - 4 + 30 and not draggingWindows then
+        draggingWindows = {
+          getCursorPosition() * _UPVALUE0_,
+          getCursorPosition() * _UPVALUE1_,
+          theX,
+          theY
+        }
+      end
+      if draggingWindows then
+        theX = getCursorPosition() * _UPVALUE0_ - draggingWindows[1] + draggingWindows[3]
+        theY = getCursorPosition() * _UPVALUE1_ - draggingWindows[2] + draggingWindows[4]
+      end
+    else
+      draggingWindows = false
+    end
+  else
+    draggingWindows = false
+  end
+  if getCursorPosition() then
+  else
+  end
+  for _FORV_8_ = 0, 2 do
+    for _FORV_12_ = 0, 1 do
+      dxDrawRectangle(theX - 146 + _FORV_8_ * 97.33333333333333 + 4, theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4, 89.33333333333333, 72, tocolor(124, 197, 118, 200))
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) + 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) + 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) - 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) - 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) - 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) - 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) - 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2) + 1, math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333) + 1, math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2) + 1, tocolor(0, 0, 0), 0.9, gtaFont, "center", "center", false, false, false, true)
+      dxDrawText(_UPVALUE3_[_FORV_8_][_FORV_12_], math.floor(theX - 146 + _FORV_8_ * 97.33333333333333), math.floor(theY - 160 + 30 + _FORV_12_ * 160 / 2), math.floor(theX - 146 + (_FORV_8_ + 1) * 97.33333333333333), math.floor(theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2), tocolor(255, 255, 255), 0.9, gtaFont, "center", "center", false, false, false, true)
+      if _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] then
+        dxDrawImage(theX - 146 + _FORV_8_ * 97.33333333333333 + 4 + 44.666666666666664 - 12, theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4 + 18 - 12, 24, 24, "files/chips/" .. _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] .. ".png")
+        if 0 >= theX - 146 + _FORV_8_ * 97.33333333333333 + 4 + 44.666666666666664 - 12 and 0 >= theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4 + 18 - 12 and 0 <= theX - 146 + _FORV_8_ * 97.33333333333333 + 4 + 44.666666666666664 + 12 and 0 <= theY - 160 + 30 + _FORV_12_ * 160 / 2 + 4 + 18 + 12 then
+          if _UPVALUE5_ and _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] and _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] + _UPVALUE5_ > 10000 then
+          else
+            showTooltip(0, 0, _UPVALUE3_[_FORV_8_][_FORV_12_], "T�ted: " .. (_UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] or 0) .. " SSC")
+          end
+          if getKeyState("mouse2") then
+            if 0 < (_UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] or 0) then
+              _UPVALUE2_ = _UPVALUE2_ - _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_]
+              _UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] = 0
+              _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] = false
+              triggerServerEvent("onRemoveFortuneBet", localPlayer, _UPVALUE7_, _FORV_8_, _FORV_12_)
+            end
+          end
+        end
+      end
+      if _UPVALUE5_ > 0 and 0 >= theX - 146 + _FORV_8_ * 97.33333333333333 and 0 >= theY - 160 + 30 + _FORV_12_ * 160 / 2 and 0 <= theX - 146 + (_FORV_8_ + 1) * 97.33333333333333 and 0 <= theY - 160 + 30 + (_FORV_12_ + 1) * 160 / 2 then
+        if _UPVALUE5_ then
+          if (_UPVALUE6_[_FORV_8_ .. "," .. _FORV_12_] or 0) + _UPVALUE5_ > 10000 then
+            showTooltip(0, 0, _UPVALUE3_[_FORV_8_][_FORV_12_], "Maximum 10000 SSC lehet a t�t.")
+          end
+        elseif not getKeyState("mouse1") then
+          triggerServerEvent("onPlaceFortuneCoin", localPlayer, _UPVALUE5_, _UPVALUE7_, _FORV_8_, _FORV_12_, getElementsByType("player", getRootElement(), true), _UPVALUE8_[_FORV_8_][_FORV_12_])
+          _UPVALUE9_ = getTickCount()
+          _UPVALUE4_[_FORV_8_ .. "," .. _FORV_12_] = _UPVALUE5_
+          _UPVALUE5_ = 0
+        end
+      end
+    end
+  end
+  dxDrawText("#7cc576See#ffffffMTA - Szerencseker�k", theX - respc(150) + 5, theY - 150 - 4, 0, theY - 150 - 4 + 30, tocolor(255, 255, 255), 1, Roboto, "left", "center", false, false, false, true)
+  dxDrawText("x", 0, theY - 150 - 4, theX + respc(150) - 5, theY - 150 - 4 + 30, tocolor(215, 89, 89, 200), 1, Roboto, "right", "center", false, false, false, true)
+  if 0 >= theX - 142 and 0 >= theY + 160 - 130 + 8 and 0 <= theX - 142 + 284 and 0 <= theY + 160 - 130 + 8 + 50 - 16 and _UPVALUE2_ > 0 and _UPVALUE5_ < 1 and getTickCount() - _UPVALUE9_ > 2000 then
+    if not exitingProcessStarted and getKeyState("mouse1") then
+      cantNotiState = false
+      exitingProcessStarted = true
+      closeTheTable(true)
+      return
+    end
+  end
+  dxDrawRectangle(theX - 142, theY + 160 - 130 + 8, 284, 34, tocolor(124, 197, 118, 225))
+  dxDrawText("P�rget�s", theX - 150, theY + 160 - 130, theX + 150, theY + 160 - 80, tocolor(0, 0, 0), 0.85, Roboto, "center", "center", false, false, false, true)
+  dxDrawText("#7cc576" .. _UPVALUE10_ .. " #ffffffSSC", theX - 150, theY + 150 - 80, theX + 150, theY + 150 - 32, tocolor(255, 255, 255), 0.9, gtaFont, "center", "center", false, false, false, true)
+  dxDrawImage(math.floor(theX - 96), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/1.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(32)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/5.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(64)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/25.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(96)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/50.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(128)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/100.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  dxDrawImage(math.floor(theX - 96 + respc(160)), math.floor(theY + respc(150) - respc(32)), respc(24), respc(24), "files/chips/500.png", 0, 0, 0, tocolor(255, 255, 255, 120))
+  if _UPVALUE5_ > 0 then
+    dxDrawImage(0 - 12, 0 - 12, 24, 24, "files/chips/" .. _UPVALUE5_ .. ".png")
+  end
+  if _UPVALUE5_ > 0 and not getKeyState("mouse1") then
+    _UPVALUE5_ = 0
+  end
+  if 0 and getTickCount() - _UPVALUE11_ > 1000 then
+    if 0 >= theX - 96 and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(24) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 1 then
+      _UPVALUE5_ = 1
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(32) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(56) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 5 then
+      _UPVALUE5_ = 5
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(64) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(88) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 25 then
+      _UPVALUE5_ = 25
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(96) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(120) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 50 then
+      _UPVALUE5_ = 50
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(128) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(152) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 100 then
+      _UPVALUE5_ = 100
+      _UPVALUE11_ = getTickCount()
+    end
+    if 0 >= theX - 96 + respc(160) and 0 >= theY + respc(150) - respc(32) and 0 <= theX - 96 + respc(184) and 0 <= theY + respc(174) - respc(32) and getKeyState("mouse1") and _UPVALUE10_ >= 500 then
+      _UPVALUE5_ = 500
+      _UPVALUE11_ = getTickCount()
+    end
+  end
+end
+function roulettePlaceRender()
+  setElementPosition(_UPVALUE0_, getElementPosition(localPlayer))
+  setElementRotation(_UPVALUE0_, 0, 0, math.floor(getElementRotation(localPlayer) / 5) * 5)
+end
+addCommandHandler("createwheel", function()
+  if getElementData(localPlayer, "acc.adminLevel") >= 9 then
+    if _UPVALUE0_ then
+      removeEventHandler("onClientRender", getRootElement(), roulettePlaceRender)
+      triggerServerEvent("placeFortuneWheel", localPlayer, getElementPosition(_UPVALUE0_))
+      if isElement(_UPVALUE0_) then
+        destroyElement(_UPVALUE0_)
+      end
+      _UPVALUE0_ = nil
+    else
+      _UPVALUE0_ = createObject(1896, 0, 0, 0)
+      setElementCollisionsEnabled(_UPVALUE0_, false)
+      setElementAlpha(_UPVALUE0_, 175)
+      setElementInterior(_UPVALUE0_, getElementInterior(localPlayer))
+      setElementDimension(_UPVALUE0_, getElementDimension(localPlayer))
+      addEventHandler("onClientRender", getRootElement(), roulettePlaceRender)
+    end
+  end
+end)
+addCommandHandler("nearbywheels", function()
+  if getElementData(localPlayer, "acc.adminLevel") and getElementData(localPlayer, "acc.adminLevel") >= 9 then
+    outputChatBox("#7cc576------[K�zeledben l�v� kerekek]------", 255, 255, 255, true)
+    for _FORV_7_ = 1, #getElementsByType("object", getRootElement(), true) do
+      if getElementData(getElementsByType("object", getRootElement(), true)[_FORV_7_], "fortuneTable") then
+        outputChatBox("  #" .. getElementData(getElementsByType("object", getRootElement(), true)[_FORV_7_], "fortuneTable") .. " T�vols�g:#32b3ef " .. math.floor(getDistanceBetweenPoints3D(getElementPosition(localPlayer)) * 1000) / 1000, 255, 255, 255, true)
+      end
+    end
+  end
+end)
